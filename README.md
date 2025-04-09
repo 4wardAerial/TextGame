@@ -1,2 +1,3 @@
-# textGame
-Text-based game on Godot
+# Text Game
+### Made on Godot
+More info to come
