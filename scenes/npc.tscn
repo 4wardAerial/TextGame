@@ -5,7 +5,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_abqhh"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_abqhh"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_abqhh"]
+radius = 9.93069
+height = 25.0134
 
 [node name="npc" type="StaticBody2D"]
 script = ExtResource("1_abqhh")
@@ -16,16 +18,16 @@ texture = ExtResource("1_nh2m4")
 [node name="npcCollision" type="CollisionShape2D" parent="."]
 scale = Vector2(6.04, 6.04)
 shape = SubResource("RectangleShape2D_abqhh")
-debug_color = Color(0.658824, 0.513726, 0.14902, 0.239216)
+debug_color = Color(0.960784, 0.196078, 0, 0.168627)
 
-[node name="npcInteractiveArea" type="Area2D" parent="."]
+[node name="npcVisionArea" type="Area2D" parent="."]
 
-[node name="npcAreaCollision" type="CollisionShape2D" parent="npcInteractiveArea"]
-position = Vector2(3.55266e-14, 122)
-rotation = 3.14159
+[node name="npcVisionCollision" type="CollisionShape2D" parent="npcVisionArea"]
+position = Vector2(4.49845e-11, 145)
+rotation = 4.71238
 scale = Vector2(14.6012, 14.3923)
-shape = SubResource("CircleShape2D_abqhh")
+shape = SubResource("CapsuleShape2D_abqhh")
 debug_color = Color(0.235294, 0.635294, 0.0588235, 0.282353)
 
-[connection signal="area_entered" from="npcInteractiveArea" to="." method="_on_npc_interactive_area_area_entered"]
-[connection signal="area_exited" from="npcInteractiveArea" to="." method="_on_npc_interactive_area_area_exited"]
+[connection signal="area_entered" from="npcVisionArea" to="." method="_on_npc_vision_area_area_entered"]
+[connection signal="area_exited" from="npcVisionArea" to="." method="_on_npc_vision_area_area_exited"]

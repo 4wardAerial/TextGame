@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://v0o14mm34ho1"]
+
+[ext_resource type="Texture2D" uid="uid://5a5agig183fn" path="res://icon.svg" id="1_1gqwt"]
+[ext_resource type="PackedScene" uid="uid://kp173fau30ly" path="res://scenes/player.tscn" id="2_uoagm"]
+[ext_resource type="PackedScene" uid="uid://bdc5p1v248li5" path="res://scenes/npc.tscn" id="3_rkn4f"]
+
+[node name="playroom" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(480, 480)
+scale = Vector2(7.5, 7.5)
+texture = ExtResource("1_1gqwt")
+
+[node name="player" parent="." instance=ExtResource("2_uoagm")]
+
+[node name="npc" parent="." instance=ExtResource("3_rkn4f")]
+position = Vector2(705, 229)
