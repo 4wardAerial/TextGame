@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdc5p1v248li5"]
+
+[ext_resource type="Script" uid="uid://jad4jbxln1t4" path="res://scenes/scripts/npc.gd" id="1_abqhh"]
+[ext_resource type="Texture2D" uid="uid://5a5agig183fn" path="res://icon.svg" id="1_nh2m4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abqhh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_abqhh"]
+
+[node name="npc" type="StaticBody2D"]
+script = ExtResource("1_abqhh")
+
+[node name="npcSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_nh2m4")
+
+[node name="npcCollision" type="CollisionShape2D" parent="."]
+scale = Vector2(6.04, 6.04)
+shape = SubResource("RectangleShape2D_abqhh")
+debug_color = Color(0.658824, 0.513726, 0.14902, 0.239216)
+
+[node name="npcInteractiveArea" type="Area2D" parent="."]
+
+[node name="npcAreaCollision" type="CollisionShape2D" parent="npcInteractiveArea"]
+position = Vector2(3.55266e-14, 122)
+rotation = 3.14159
+scale = Vector2(14.6012, 14.3923)
+shape = SubResource("CircleShape2D_abqhh")
+debug_color = Color(0.235294, 0.635294, 0.0588235, 0.282353)
+
+[connection signal="area_entered" from="npcInteractiveArea" to="." method="_on_npc_interactive_area_area_entered"]
+[connection signal="area_exited" from="npcInteractiveArea" to="." method="_on_npc_interactive_area_area_exited"]
